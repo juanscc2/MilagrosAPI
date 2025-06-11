@@ -1,4 +1,9 @@
 package com.milagrosapi.milagrosapi.Domain.Repository;
 
-public interface ClientRepository {
+import com.milagrosapi.milagrosapi.DTO.ClientResponse;
+import com.milagrosapi.milagrosapi.Persistence.Entity.Client;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ClientRepository extends JpaRepository<Client,Integer> {
+
 }
