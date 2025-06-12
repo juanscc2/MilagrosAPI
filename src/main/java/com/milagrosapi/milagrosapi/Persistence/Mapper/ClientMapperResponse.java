@@ -1,6 +1,5 @@
 package com.milagrosapi.milagrosapi.Persistence.Mapper;
 
-import com.milagrosapi.milagrosapi.DTO.ClientRequest;
 import com.milagrosapi.milagrosapi.DTO.ClientResponse;
 import com.milagrosapi.milagrosapi.Persistence.Entity.Client;
 import org.mapstruct.InheritInverseConfiguration;
@@ -10,7 +9,7 @@ import org.mapstruct.Mapping;
 import java.util.List;
 
 @Mapper(componentModel = "spring")
-public interface ClientMapper {
+public interface ClientMapperResponse {
         @Mapping(source = "id",target = "idClient")
         @Mapping(source = "name",target = "nameClient")
         @Mapping(source = "lastname",target = "lastnameClient")
