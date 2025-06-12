@@ -10,5 +10,7 @@ public class ClientRequest {
 
     private String lastnameClient;
 
+    private String emailClient;
+
     private Integer phoneClient;
 }

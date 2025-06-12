@@ -3,11 +3,13 @@ package com.milagrosapi.milagrosapi.Web.Controller;
 import com.milagrosapi.milagrosapi.DTO.ClientRequest;
 import com.milagrosapi.milagrosapi.DTO.ClientResponse;
 import com.milagrosapi.milagrosapi.Domain.Service.ClientService;
+import com.milagrosapi.milagrosapi.Persistence.Entity.Client;
+import com.milagrosapi.milagrosapi.Persistence.Mapper.ClientMapperRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,10 +20,14 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-    @GetMapping
-    public List<ClientResponse> getbyAllUsers(){
-        return clientService.getbyAll();
+    @GetMapping("/all")
+    public ResponseEntity<List<ClientResponse>> getbyAllUsers(){
+    List<ClientResponse> clients=clientService.getbyAll();
+    return ResponseEntity.ok(clients);
     }
-
+    @PostMapping("/save")
+    public Client saveClient (@RequestBody  ClientRequest request){
+        return clientService.addClient(request);
+    }
 
 }
