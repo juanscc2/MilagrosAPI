@@ -29,5 +29,16 @@ public class ClientController {
     public Client saveClient (@RequestBody  ClientRequest request){
         return clientService.addClient(request);
     }
+    @PutMapping("/update/{id}")
+    public Client updateClient(@PathVariable Integer id,@RequestBody ClientRequest request){
+        return clientService.updateClient(id,request);
+    }
+    @DeleteMapping("/delete/{id}")
+    public boolean deleteClient(@PathVariable Integer id,Client client){
+        return clientService.deleteClient(id,client);
+    }
+
+
+
 
 }
